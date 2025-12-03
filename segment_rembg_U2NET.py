@@ -6,8 +6,8 @@ import io
 from tqdm import tqdm
 
 # ================= 配置 =================
-INPUT_ROOT = "results_seeds"  # 上一步裁剪好的图片目录
-OUTPUT_ROOT = "segmented_seeds_ai"  # 输出目录
+INPUT_ROOT = "output/results_seeds"  # 上一步裁剪好的图片目录
+OUTPUT_ROOT = "output/segmented_seeds_ai"  # 输出目录
 
 
 # =======================================

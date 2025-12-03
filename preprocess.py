@@ -7,7 +7,7 @@ import shutil
 
 # ================= 配置区域 =================
 INPUT_FOLDER = "dataset/80h"  # 输入图片所在的文件夹
-OUTPUT_ROOT = "results_seeds"  # 输出结果的根目录
+OUTPUT_ROOT = "output/results_seeds"  # 输出结果的根目录
 MAX_HOURS = 80  # 只处理前80小时
 GRID_ROWS = 2  # 2行
 GRID_COLS = 3  # 3列

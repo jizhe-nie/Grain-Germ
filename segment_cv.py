@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 # ================= 配置 =================
 INPUT_ROOT = "results_seeds"  # 上一步生成的文件夹
-OUTPUT_ROOT = "segmented_seeds"  # 结果输出文件夹
+OUTPUT_ROOT = "output/segmented_seeds"  # 结果输出文件夹
 DEBUG_MODE = False  # 设为True会保存黑白Mask以便调试
 
 

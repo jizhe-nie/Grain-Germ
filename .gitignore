@@ -1,5 +1,7 @@
-# 忽略 output 文件夹
+# 忽略 output和weight 文件夹
 output/
+weight/
 
 # 忽略 macOS 系统自动生成的文件
 .DS_Store
+*.pth
