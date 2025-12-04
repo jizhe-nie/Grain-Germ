@@ -1,0 +1,11 @@
+# 这里的路径是相对于你运行 yolo 命令的目录
+path: ../dataset/label_seed_tip_yolo
+train: images/train
+val: images/val
+
+# 类别数量
+nc: 1
+
+# 类别名称列表
+names:
+  0: seed

@@ -98,14 +98,29 @@ def process_single_image(img_path, session):
 
 
 def main():
-    # 检测 GPU
-    providers = ['CUDAExecutionProvider', 'CPUExecutionProvider']
-    if 'CUDAExecutionProvider' in ort.get_available_providers():
-        print("✅ GPU 加速已启用")
+    # 检测可用的加速提供者
+    available_providers = ort.get_available_providers()
+
+    # 优先顺序列表
+    # 1. CoreML (Mac M系列芯片专用加速)
+    # 2. CUDA (NVIDIA 显卡)
+    # 3. CPU (保底)
+    providers = []
+
+    if 'CoreMLExecutionProvider' in available_providers:
+        print("🍎 检测到 Mac Apple Silicon (M系列芯片)，已启用 CoreML 加速")
+        providers.append('CoreMLExecutionProvider')
+    elif 'CUDAExecutionProvider' in available_providers:
+        print("✅ 检测到 NVIDIA GPU，已启用 CUDA 加速")
+        providers.append('CUDAExecutionProvider')
     else:
-        print("⚠️ 使用 CPU 运行")
+        print("⚠️ 未检测到专用加速器，将使用 CPU 运行")
+
+    # 无论如何都要加上 CPU 作为最后的备选
+    providers.append('CPUExecutionProvider')
 
     print(f"加载模型: {MODEL_NAME}...")
+    # 传入调整后的 providers
     session = new_session(model_name=MODEL_NAME, providers=providers)
 
     all_images = glob.glob(os.path.join(INPUT_ROOT, "**", "*.jpg"), recursive=True)
