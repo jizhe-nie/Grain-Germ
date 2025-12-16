@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 # ================= 配置区域 =================
 # 1. 模型路径 (请确保路径正确)
-YOLO_MODEL_PATH = "runs/detect/rice_seed_roi_22/weights/best.pt"
+YOLO_MODEL_PATH = "runs/detect/rice_seed_roi_2/weights/best.pt"
 KP_MODEL_PATH = "checkpoints/best_bud_kp_net.pth"
 
 # 2. 输入文件夹 (你指定的大图文件夹)
